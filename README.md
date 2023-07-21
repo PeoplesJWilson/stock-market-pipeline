@@ -1,8 +1,5 @@
 # Stock Market Pipeline using Kafka and AWS
 
-- make ec2 producer instance
-- install git with `sudo yum install git`
-
 ## Reproducability
 ### Obtaining your twelvedata api-key
 Make a free account with [twelvedata](https://twelvedata.com/) to obtain access to their stock  api. Follow the signup process, and save your api_key for later use.
@@ -40,7 +37,8 @@ Make a free account with [twelvedata](https://twelvedata.com/) to obtain access 
     - Allow Port 9092 inbound traffic from the CIDR. range corresponding to the __single private IPV4 of the Kafka Server instance above__.
     - Add an IAM role allowing S3 make bucket permissions.
 - After the instance is created, ssh into it
-- Once there, run `git clone https://github.com/PeoplesJWilson/stock-market-pipeline.git` to clone this repo to your instance
+- install git with `sudo yum install git`
+- run `git clone https://github.com/PeoplesJWilson/stock-market-pipeline.git` to clone this repo to your instance
 - Navigate to the __ec2_producer__ folder
 - Add execution privileges to the shell files in this directory with the command `chmod +x *.sh`
 - run the setup script with `./ec2_producer_setup.sh`, answering yes when prompted
