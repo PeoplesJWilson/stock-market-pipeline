@@ -3,19 +3,20 @@
 # PLEASE APPROPRIATELY CONFIGURE THESE VARIABLES
 
 #________enter your twelvedata api key below_______
-# export TWELVE_DATA_API_KEY="YOURAPIKEY"
+export TWELVE_DATA_API_KEY="YOURAPIKEY"
 
-# enter your EC2 instance's public ip
-export PUBLIC_IP="0.0.0.0" \
-export SERVER_PORT="${PUBLIC_IP}:9092" \
+# since the kafka and zookeeper servers (as well as producer) will be running on this instance,
+# keeping PUBLIC_IP="0.0.0.0" is okay
+export PRIVATE_IP="0.0.0.0"
+export SERVER_PORT="${PRIVATE_IP}:9092"
 
 # enter appropriate values for kafka variables for downloading with wget
-export KAFKA_RECENT="3.4.1" \
-export KAFKA_VERSION="kafka_2.12-3.4.1" \
+export KAFKA_RECENT="3.4.1"
+export KAFKA_VERSION="kafka_2.12-3.4.1"
 
 # personalize these variables to your liking
-export BUCKET_NAME="peoples-stock-streaming-data" \
-export TOPIC_NAME="stock_pipeline" \
+export BUCKET_NAME="peoples-stock-streaming-data"
+export TOPIC_NAME="stock_pipeline"
 export SYMBOL="AAPL"
 export N_SAMPLES=800 #number of allowed api calls per day on twelvedata free tier
 
@@ -53,7 +54,5 @@ sleep 10
 
 # shutdown zookeeper and kafka servers
 killall -9 java
-
-python3 consumer.py
 
 
