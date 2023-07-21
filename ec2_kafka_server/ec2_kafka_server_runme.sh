@@ -1,11 +1,12 @@
 #!/bin/bash
-# since the kafka and zookeeper servers (as well as producer) will be running on this instance,
-# keeping PUBLIC_IP="0.0.0.0" is okay
-export PRIVATE_IP_DNS="0.0.0.0"
+
+# PLEASE APPROPRIATELY CONFIGURE THESE VARIABLES
+export PRIVATE_IP_DNS="ip-0-0-0-0.region.compute.internal" # kafka server ip 
 export SERVER_PORT="${PRIVATE_IP_DNS}:9092"
 
+
 # personalize these variables to your liking
-export TOPIC_NAME="stock_pipeline"
+export TOPIC_NAME="stock_pipeline" #This must match TOPIC_NAME used by producer and consumer
 
 # enter appropriate values for kafka variables for downloading with wget
 export KAFKA_RECENT="3.4.1"
